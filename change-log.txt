@@ -1,0 +1,36 @@
+***RN***
+This is the change log for the rn, (record notes), script, part of the fluxability project's fluxable scripts collection.
+
+
+0.3.0: *(Summer 2015)*
+A simple script that recorded .ogg audio files that took no options worked well enough became part of the author's toolkit.
+
+0.3.1: *(Summer 2015/a few daze later)*
+The extension variable was added to alow for recording in other audio containers and encodings.
+Minor cleanup.
+
+0.4.0: 15/11/2015
+Command line options are added allowing appending to existing files, one time audio format changes, verbos mode to announce filenames, .3-1: Fixed a serious bug/wrong file was copied when making tarball breaking append./stupid developer error 
+
+0.4.3-2: Fixed a bug in the installer thathad root owning user's configuration files on many systems.
+
+0.4.4: Installler now works for arch-linux as well as Debian based distros. 
+Minor cleanup.
+
+0.5.0: Rename rn to ran to avoid potential conflicts with a systemd process calledrn started at boot time on some systems.
+First steps taken towards ran GUI mode. Messges aresent as notifications when ran is run from a graphical environment. CLI mode can be run from a GUI 
+with the new -c option.
+Minor changes in msg text. 
+Project will now be available on github. Traditional version numbers will not be used in git repo until basic GUI is fully inplemented.     
+ 
+**Todo: Consider adding one or more verbosity levels or finer grained msg control  mAdd human readable time stamp option.
+Ad an option to write to an alt directory.
+Move help message out of main script file.
+Add an alternative installer for Arch-Linux based systems, and perhaps consider other distro families as well.
+Add an option to override recording start timeout for those not using speech, and to changedelay value from cmdline so that the user can finetune 
+timeoutwith out having to edit .conf file  for each test.
+ 
+
+This file was last updated- Wed Mar 23 14:51:18 CST 2016
+*(CST is Mexican central standard time, i.e., Mexico, Mexico City..., or Mexico_general.)
+

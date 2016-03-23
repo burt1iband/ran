@@ -1,0 +1,54 @@
+***RAN***
+This README file is for ran; part of the fluxability project.
+RAN is a simple frontend to sox for recording of audio notes and quick klipz written in bash, formerlly known as rn.
+Although ran can be run as a stand alone bash script it tries to read fluxable.conf to set some defaults.
+
+The directory where you found this README should also contain the following files.
+
+change-log.txt
+fluxable.conf  
+install_ran.sh
+md5sums.txt
+ran
+ran.1.gz
+
+**Installation
+Extract files from the ran tarball with something like
+tar xjf ran-<version>.tar.bz2
+replacing version with the actual version number of your package.
+Change in to the newly created directory with cd, e.g.
+cd Downloads/ran-<version>
+assuming you extracted the tarball in a sub-directory of your home folder called Downloads
+and againreplacing <version> with the version number of your package.
+Now type 
+sudo ./install_ran.sh
+You will be prompted for your password, and once it is correctly entered 
+the ran installer will start.
+Many users will already have sox on their systems, 
+and for them installation should be almost instant.
+
+**Usage
+The whole point of ran is simplicity and ease of use.
+Typing ran Jeff will start recording a file called Jeff.ogg in ~/Audio/au_notes.
+If you don't enter your file's basename on the command line then 
+the recording is named ran.ogg.
+Existing files are renamed with a timestamp, or if the -a flag is used
+they are appended to. Control c stops a recording.
+To see all available options and configurations see the ran manp page,
+and ran -h will show you the basics.
+
+**Legal
+ I am using the GNU public license, version 3 these daze.
+I do not want to waste your time nor feel like a fool
+by sharing a bug ridden mess, so I make a good faith effort
+to test anything I pass along to others.
+I do eat my own dogfood as they say.
+All that being said neither I nor the chaos that may coaless in to the fluxability project are responsible for any damage to you or any computer you 
+run this software on. I do eat my own dogfood as they say for whatever that's worth.
+
+ This work is distributed underthe terms of the GPL3, and may be redistributed under these terms or 
+ optionally any later versions of the GNU General Public License http://fsf.org/    
+ A previous version of this work was released under the terms of the WTFPL License: http://wtfpl.net
+ If you need this alternative license ask me. 
+Read the licenses to see what all that means if you have never done so. 
+

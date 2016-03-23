@@ -1,0 +1,134 @@
+#!/bin/bash
+## RAN - Record Audio Notes: by B.H.
+##  simple way to record audio notes, song ideas, etc from the commandline
+## with out having to disctract yourself with a lot of typing losing your train of thought. 
+
+
+## Define some variables
+EXT=ogg
+RD="$HOME/Audio"
+AN="au_notes"
+SD=$PWD
+TS="$(date +%s)"
+RCMD="rec -q"
+TP=0.7
+
+## Alt method to end recording, preparing for a GUI
+rnkr() {
+KRAN="$(pgrep ran|tail -n 1)"
+echo "$KRAN" > /tmp/ran-rec.id 
+#kill "$KRAN"
+}
+
+## Are we running from a GUI?/Test and tweak according to results.
+TT="$(pstree -As $$ | grep xinit)"
+     if [ -z "$TT" ]; then
+NTFY="echo"
+else
+NTFY="notify-send"
+fi
+
+## Read config files if available
+     if [[ -f ~/.fluxable/fluxable.conf ]]; then
+. ~/.fluxable/fluxable.conf
+     else
+if [ -f /etc/fluxable/fluxable.conf ]; then
+. /etc/fluxable/fluxable.conf
+else
+$NTFY "RAN Stand Alone"
+sleep $TP
+     fi
+     fi
+
+## Parse commandline options
+while getopts ":ace:hv" opt; do
+case $opt in
+a)
+AP=1
+shift
+;;
+c)
+NTFY="echo"
+;;
+e)
+EXT=$OPTARG
+shift 2
+;;
+h)
+$NTFY "Typing ran <myfile> starts recording <myfile>.$EXT in $RD.
+If a file exists with that name and extension then the old file is renamed
+to myfile-old-timestamp. Timestamps are in machine readable form by default.
+If no file name is entered then they are named ran, ran-old-timestamp, etc.
+Press ^c to stop recording.
+
+          OPTIONS
+-a   Appends recording on to an existing file if it exists
+-c   CLI mode is forced when run from a GUI: may be prefered in terminal 
+-e   Extension to use instead of $EXT - (Enter extension as argument)
+-h   Help message is displayed, (what you are reading now ._.)
+-v   Verbos run: complete filenames are shown with path
+
+     Type man ran for a bit more information."
+exit 1
+;;
+v)
+VB=1
+shift
+;;
+?)
+$NTFY "$OPTARG is invalid"
+exit 2
+;;
+esac
+done
+
+## Name our audio files
+if ! [ -z $1 ]; then
+FN="$1"
+else
+FN="ran"
+fi
+
+FNC="$FN"\."$EXT"
+OF="$FN"-old-"$TS"\."$EXT"
+
+## Check code to be removed
+#$NTFY "$RCMD"
+#$NTFY "$FNC"
+#$NTFY "$OF"
+
+## Create a directory for recorded notes if it does not exist
+if ! [ -d "$RD"/"$AN" ]; then
+mkdir -p "$RD"/"$AN"
+fi
+cd "$RD"/"$AN"
+
+if [[ $AP == 1 ]]; then
+mv $FNC .tmp1.$EXT
+rec -q .tmp2.$EXT
+sox .tmp1.$EXT -p pad 0.5 1.0|sox - .tmp2.$EXT $FNC
+exit 0
+else
+## Check for existing recording file to avoid overwrites
+if [[ -f "$FNC" ]]; then
+mv "$FNC" "$OF"
+fi
+fi
+
+## Display data if verbosity flag is set
+if [[ $VB -eq 1 ]]; then
+$NTFY "You are recording to $FNC in $RD/$AN."
+TPV="$(echo $TP*2|bc)"
+if [ -f "$OF" ]; then
+$NTFY "The old $RNC file has been renamed to $OF."
+     TPV="$(echo $TP*5.5|bc)"
+fi
+sleep $TPV
+$NTFY "Your delay is $TPV"
+     fi 
+
+${RCMD} "$FNC" 
+#RID="$(pgrep ran)"
+#echo "$RID" > /tmp/ran.id
+#cd "$SD"
+exit=0

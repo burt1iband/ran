@@ -1,0 +1,33 @@
+### /etc/fluxable/fluxable.conf
+## A user specific copy can live in ~/.fluxable
+#
+## Configure your fluxability settings here.
+## Haz tu configuracion aqui.
+
+## Language
+language=in
+
+## Where to display apps menus, i.e filemanager to use:
+## Only set or uncomment AFM here if you know what you are doing.
+## In most cases the best available filemanager is chosen by fluxable-newmenus itself
+## This setting only effects fluxablenewmenus, not desktop management or default file manager.
+#AFM=caja
+
+## Desktop management
+## Only change this option if you change the filemanager launched
+## when fluxbox starts, usually by editing ~/.fluxbox/startup.
+DFMcmd="pcmanfm --desktop"
+ 
+## Default time format to use: use man date as a reference...
+#DTF=
+
+## Recording
+## Where to put streams and recorded notes directories
+RD=$HOME/Audio 
+
+###### Audio notes sub-dir
+AN=au_notes
+
+## Time to pause: How long to wait, (seconds), before starting recording/value may be multiplied several times when running in verbos mode
+TP=0.70
+
