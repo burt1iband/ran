@@ -17,11 +17,11 @@ Command line options are added allowing appending to existing files, one time au
 0.4.4: Installler now works for arch-linux as well as Debian based distros. 
 Minor cleanup.
 
-0.5.0: Rename rn to ran to avoid potential conflicts with a systemd process calledrn started at boot time on some systems.
+0.5.0: Renamed rn to ran to avoid potential conflicts with a systemd process calledrn started at boot time on some systems.
 First steps taken towards ran GUI mode. Messges aresent as notifications when ran is run from a graphical environment. CLI mode can be run from a GUI 
 with the new -c option.
 Minor changes in msg text. 
-Project will now be available on github. Traditional version numbers will not be used in git repo until basic GUI is fully inplemented.     
+Project is now available on github. Traditional version numbers will not be used in git repo until basic GUI is fully inplemented.     
  
 **Todo: Consider adding one or more verbosity levels or finer grained msg control  mAdd human readable time stamp option.
 Ad an option to write to an alt directory.
@@ -31,6 +31,7 @@ Add an option to override recording start timeout for those not using speech, an
 timeoutwith out having to edit .conf file  for each test.
  
 
-This file was last updated- Wed Mar 23 14:51:18 CST 2016
+This file was last updated- Thu Mar 24 14:11:54 CST 2016
+
 *(CST is Mexican central standard time, i.e., Mexico, Mexico City..., or Mexico_general.)
 
