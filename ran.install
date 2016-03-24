@@ -1,0 +1,30 @@
+## ran.install
+
+post_install() {
+      echo "If you ever trash your ~/.fluxable/fluxable.conf file
+a sample configuration file has been installed to /etc/fluxable
+with a .org extension."
+
+## Set the username since this installer is probably being run with sudo
+WHO="$(logname)"
+
+if ! [ -f /etc/fluxable/fluxable.conf ]; then
+sudo cp /etc/fluxable/fluxable.conf.org /etc/fluxable/fluxable.conf
+     fi
+
+if ! [ -d $HOME/.fluxable ]; then
+mkdir -p $HOME/.fluxable
+sudo chown $WHO ~/.fluxable
+     fi
+
+if ! [ -f $HOME/.fluxable/fluxable.conf ]; then
+cp ./fluxable.conf $HOME/.fluxable/fluxable.conf
+sudo chown -R $WHO ~/.fluxable
+     fi
+
+echo "To use ran open a terminal or tty console, type ran, or ran some-filename,
+and recording will start. The file's extension will be added by ran.
+Control cstops the recording. Recordings live in ~/Audio/au_notes.
+To see a help message type ran -h, or
+man ran for more detailed information."
+     }
