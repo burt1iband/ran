@@ -4,4 +4,5 @@ bad230e23b0bb2b1300433d85e02124e  fluxable.conf.org
 a547c3d62d8b5261bf2610f43c332125  md5sums.txt
 9cdda4f51a01ac1d54e997df6d887642  ran
 915761ff823b2bbef89dfc76ee7d2e40  ran.1.gz
+dda4e8749a97513dafeb7624ebe7f9e6  ran.install
 f836fa33927bea4bbf595b8b2b06ee71  README
