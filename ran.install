@@ -1,30 +1,33 @@
 ## ran.install
 
-post_install() {
-      echo "If you ever trash your ~/.fluxable/fluxable.conf file
-a sample configuration file has been installed to /etc/fluxable
-with a .org extension."
-
-## Set the username since this installer is probably being run with sudo
-WHO="$(logname)"
-
+## Update defaults for users who have not customized
+inst_sysconf() {
 if ! [ -f /etc/fluxable/fluxable.conf ]; then
-sudo cp /etc/fluxable/fluxable.conf.org /etc/fluxable/fluxable.conf
+ cp /etc/fluxable/fluxable.conf.org /etc/fluxable/fluxable.conf
      fi
+     }
 
-if ! [ -d $HOME/.fluxable ]; then
-mkdir -p $HOME/.fluxable
-sudo chown $WHO ~/.fluxable
-     fi
-
-if ! [ -f $HOME/.fluxable/fluxable.conf ]; then
-cp ./fluxable.conf $HOME/.fluxable/fluxable.conf
-sudo chown -R $WHO ~/.fluxable
-     fi
-
+## Tell the user what's going on and what to expect.
+post_inst_msg() {
+      echo "If you ever trash your ~/.fluxable/fluxable.conf file
+a sample configuration file has been installed for you
+to /etc/fluxable with a .org extension."
+echo
 echo "To use ran open a terminal or tty console, type ran, or ran some-filename,
 and recording will start. The file's extension will be added by ran.
 Control cstops the recording. Recordings live in ~/Audio/au_notes.
 To see a help message type ran -h, or
 man ran for more detailed information."
+     }
+
+post_install() {
+inst_sysconf
+
+post_inst_msg
+     }
+
+post_upgrade() {
+inst_sysconf
+
+post_inst_msg
      }
