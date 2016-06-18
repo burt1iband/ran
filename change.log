@@ -22,6 +22,10 @@ First steps taken towards ran GUI mode. Messges aresent as notifications when ra
 with the new -c option.
 Minor changes in msg text. 
 Project is now available on github. Traditional version numbers will not be used in git repo until basic GUI is fully inplemented.     
+
+0.5.0.1: 17/06/2016- fluxable.conf is updated to support fluxable bookmarks in all packages that use it.
+Manpage is fixed/some remaining refferences to rn were changed to ran. 
+
  
 **Todo: Consider adding one or more verbosity levels or finer grained msg control  mAdd human readable time stamp option.
 Ad an option to write to an alt directory.
