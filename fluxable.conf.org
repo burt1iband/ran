@@ -28,6 +28,12 @@ RD=$HOME/Audio
 ###### Audio notes sub-dir
 AN=au_notes
 
-## Time to pause: How long to wait, (seconds), before starting recording/value may be multiplied several times when running in verbos mode
-TP=0.70
+## Pause Time: How long to wait, (seconds), before starting recording/value may be multiplied several times when running in verbos mode
+PT=0.70
 
+## Bookmarks options
+## Directory for temperary bookmarks storage
+Tpath=/tmp/fluxable/bkm
+
+## Storage dir for persistent bookmarks
+Ppath=$Home/fluxable/bkm
