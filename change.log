@@ -26,7 +26,10 @@ Project is now available on github. Traditional version numbers will not be used
 0.5.0.1: 17/06/2016- fluxable.conf is updated to support fluxable bookmarks in all packages that use it.
 Manpage is fixed/some remaining refferences to rn were changed to ran. 
 
+0.5.1: 25/06/2016- New -p option plays a file given as the manditory argument.
+Minor changes to help message
  
+
 **Todo: Consider adding one or more verbosity levels or finer grained msg control  mAdd human readable time stamp option.
 Ad an option to write to an alt directory.
 Move help message out of main script file.

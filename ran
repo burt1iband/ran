@@ -10,8 +10,10 @@ RD="$HOME/Audio"
 AN="au_notes"
 SD=$PWD
 TS="$(date +%s)"
+PLcmd="play -q"
 RCMD="rec -q"
 TP=0.7
+ 
 
 ## Alt method to end recording, preparing for a GUI
 rnkr() {
@@ -41,7 +43,7 @@ sleep $TP
      fi
 
 ## Parse commandline options
-while getopts ":ace:hv" opt; do
+while getopts ":ace:hp:v" opt; do
 case $opt in
 a)
 AP=1
@@ -64,12 +66,17 @@ Press ^c to stop recording.
           OPTIONS
 -a   Appends recording on to an existing file if it exists
 -c   CLI mode is forced when run from a GUI: may be prefered in terminal 
--e   Extension to use instead of $EXT - (Enter extension as argument)
+-e   Extension to use instead of ${EXT}: (Enter extension as argument)
 -h   Help message is displayed, (what you are reading now ._.)
+-p   Play a file in ${RD}/${AN}: (existing filename is the required argument)
 -v   Verbos run: complete filenames are shown with path
 
      Type man ran for a bit more information."
 exit 1
+;;
+p)
+exec ${PLcmd} "${RD}/${AN}/${2}"
+#exit 0
 ;;
 v)
 VB=1
