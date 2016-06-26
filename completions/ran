@@ -11,10 +11,10 @@
      opts="-a -c -e -h -p -v"
 
      case "${prev}" in
-         -f)
-             COMPREPLY=( $(compgen -f ${cur}) )
-             return 0
-             ;;
+         #-e)
+#             COMPREPLY=( $(compgen -W ${cur}) )
+#             return 0
+#             ;;
 
          -p)
      if [ -f "${HOME}/.fluxable/fluxable.conf" ]; then
