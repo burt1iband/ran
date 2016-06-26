@@ -1,0 +1,39 @@
+## Completion for ran:
+
+## ran opt [filename]
+
+ _ran()
+ {
+     local cur prev opts
+     COMPREPLY=()
+     cur="${COMP_WORDS[COMP_CWORD]}"
+     prev="${COMP_WORDS[COMP_CWORD-1]}"
+     opts="-a -c -e -h -p -v"
+
+     case "${prev}" in
+         -f)
+             COMPREPLY=( $(compgen -f ${cur}) )
+             return 0
+             ;;
+
+         -p)
+     if [ -f "${HOME}/.fluxable/fluxable.conf" ]; then
+. ${HOME}/.fluxable/fluxable.conf
+     else
+. /etc/fluxable/fluxable.conf
+     fi
+
+             local Anotes=$(ls -1 ${RD}/${AN})
+          COMPREPLY=( $(compgen -W "${Anotes}" -- ${cur}) )
+             return 0
+         ;;
+
+         *)
+         ;;
+     esac
+
+     COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+ }
+ complete -F _ran ran
+
+
