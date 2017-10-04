@@ -10,8 +10,8 @@ WHO="$(logname)"
 if [ -f /usr/bin/pacman ]; then
 UPC="pacman -Syq"
 INC="pacman -Sq --noconfirm" 
-elif [ -f /usr/bin/apt/get ]; then
-UPC="apt-get -q"
+elif [ -f /usr/bin/apt-get ]; then
+UPC="apt-get update -q"
 INC="apt-get install --install-suggests -qy"
      else
 echo "You do not appear to have a supported package manager on this system.
@@ -35,14 +35,14 @@ sudo install -m 644 ./fluxable.conf.org /etc/fluxable/fluxable.conf
 sudo install -m 644 ./fluxable.conf.org /etc/fluxable/fluxable.conf.org
 else
 if [ -f /etc/fluxable/fluxable.conf ]; then
-sudo install -m 644 ./fluxable.conf /etc/fluxable/fluxable.conf.org
+sudo install -m 644 ./fluxable.conf.org /etc/fluxable/uxable.conf.org
      else
-sudo install -m 644 ./fluxable.conf /etc/fluxable/fluxable.conf
+sudo install -m 644 ./fluxable.conf.org /etc/fluxable/fluxable.conf
      fi
      fi
 
 sudo mkdir -p /usr/share/doc/ran
-sudo install -m 644 ./change-log.txt /usr/share/doc/ran/ 
+sudo install -m 644 ./change.log /usr/share/doc/ran/ 
 
 if ! [ -d $HOME/.fluxable ]; then
 mkdir -p $HOME/.fluxable
