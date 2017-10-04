@@ -25,8 +25,10 @@ sudo "$UPC" && sudo "$INC" sox
 
 ## Copy ran files in to place
 sudo install -m 755 ./ran /usr/bin/
+sudo install -m 644 ./completions/ran /usr/share/bash-completion/completions/
 sudo install -m 644 ./ran.1.gz /usr/share/man/man1/
 
+## Create fluxable dirs and install comfig files as needed 
 if ! [ -d /etc/fluxable ]; then
 sudo mkdir -p /etc/fluxable
 sudo install -m 644 ./fluxable.conf.org /etc/fluxable/fluxable.conf
