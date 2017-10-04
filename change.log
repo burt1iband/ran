@@ -30,8 +30,10 @@ Manpage is fixed/some remaining refferences to rn were changed to ran.
 Minor changes to help message
 
 0.5.2: 25/06/2016- New -p option now has file name completion implemented.
-manpage updated: 
+manpage updated:
 
+0.5.2.1: 04/10/2017- Updated generic installer script to handle completions file
+ 
 **Todo: Consider adding one or more verbosity levels or finer grained msg control  mAdd human readable time stamp option.
 Ad an option to write to an alt directory.
 Move help message out of main script file.
@@ -40,7 +42,7 @@ Add an option to override recording start timeout for those not using speech, an
 timeoutwith out having to edit .conf file  for each test.
  
 
-This file was last updated- Thu Mar 24 14:11:54 CST 2016
+This file was last updated- Wed Oct 4 16:11:54 CST 2017
 
-*(CST is Mexican central standard time, i.e., Mexico, Mexico City..., or Mexico_general.)
+*(CDT is Mexican central standard time, i.e., Mexico, Mexico City..., or Mexico_general.)
 
